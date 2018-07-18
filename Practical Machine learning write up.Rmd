@@ -139,16 +139,9 @@ Clearly Random Forest has much better accuracy (of 100% for insample and 98.9% f
 
 ###Files for submission
 ```{r}
-predmodel2test <- predict(model2, myTesting, type = "class")
+predmodel2test <- predict(model2, newdata = testdata)
 ```
-Function to generate files with predictions to submit for assignment
+Prediction answer
 ```{r}
-pml_write_files = function(x){
-  n = length(x)
-  for(i in 1:n){
-    filename = paste0("problem_id_",i,".txt")
-    write.table(x[i],file=filename,quote=FALSE,row.names=FALSE,col.names=FALSE)
-  }
-}
-
-pml_write_files(predmodel2test)
+predmodel2test
+```
